@@ -31,7 +31,7 @@ for k, v in {
         st.session_state[k] = v
 
 # Supported AI providers
-AI_PROVIDERS = ["Claude", "OpenAI", "Gemini", "Grok"]
+AI_PROVIDERS = ["Claude", "OpenAI", "Gemini", "Groq"]
 
 st.set_page_config(page_title="Multi-AI Chatbot", page_icon="🤖")
 st.title("🤖 Multi-AI Chatbot")
@@ -150,7 +150,7 @@ if st.session_state.api_key and not st.session_state.show_settings:
                     ai_response = message.content[0].text if message.content else "[No response]"
                 except Exception as e:
                     ai_response = f"[Claude API error: {e}]"
-        elif provider == "Grok":
+        elif provider == "Groq":
             if groq is None:
                 ai_response = "[groq SDK not installed]"
             else:
